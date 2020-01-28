@@ -34,9 +34,6 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname+'/client/public/index.html'));
-});
 
 const PORT = process.env.PORT || 5000; 		//check environment for Heroku-specified port(Dynamic port binding)
 app.listen(PORT);					//server listens on port 5000
