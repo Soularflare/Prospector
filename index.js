@@ -21,18 +21,22 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
+const path = require('path');	
 require('./routes/authroutes')(app);		//returns a function to be immediately called with app object
 require('./routes/billingRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));		//loads in client assets
 
-	const path = require('path');					//resolves react specified paths
+					//resolves react specified paths
 	app.get('*', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
 }
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname+'/client/public/index.html'));
+});
 
 const PORT = process.env.PORT || 5000; 		//check environment for Heroku-specified port(Dynamic port binding)
 app.listen(PORT);					//server listens on port 5000
