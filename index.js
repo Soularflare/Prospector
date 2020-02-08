@@ -1,5 +1,6 @@
 const express = require('express');
-require('./models/user');
+require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -24,6 +25,7 @@ app.use(passport.session());
 const path = require('path');	
 require('./routes/authroutes')(app);		//returns a function to be immediately called with app object
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));		//loads in client assets
