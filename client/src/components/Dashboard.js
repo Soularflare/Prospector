@@ -6,6 +6,7 @@ const Dashboard = () => {
 	return (
 			<div>
 				<SurveyList />
+				<h6>Click the button on the bottom right to create a new campaign!</h6>
 				<div className="fixed-action-btn">
 					<Link to="/surveys/new" className="btn-floating btn-large red">
 						<i className="material-icons">add</i>

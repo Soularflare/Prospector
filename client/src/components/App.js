@@ -17,11 +17,14 @@ class App extends Component{
 		return (
 			
 				<BrowserRouter>
-					<div className="container">
+					<div style={{width: "100%", height: "100%", marginBottom: "0"}} >
+
 						<Header />
+						<div style={{ backgroundColor: "#85DCBe", marginTop: "-50px", paddingBottom: "25%"}} >
 						<Route exact={true} path="/" component={Landing} />
 						<Route exact={true} path="/surveys" component={Dashboard} />
 						<Route path="/surveys/new" component={SurveyNew} />
+						</div>
 					</div>
 				</BrowserRouter>
 			
